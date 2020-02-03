@@ -138,6 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CKString.cpp" />
+    <ClCompile Include="CKStringTester.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CKString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
