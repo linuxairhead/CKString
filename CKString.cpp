@@ -1,13 +1,18 @@
 #include "CKString.h"
 
 CKString::CKString() {
-	Trace_Debug("defult constructor", "CKString", " ");
+	Trace_Debug("\ndefult constructor", "CKString", " ");
 	reset();
 }
 
 CKString::CKString( const char * str ) {
-	Trace_Debug("c-str constructor", "CKString", " ");
+	Trace_Debug("\nc-str constructor", "CKString", " ");
 	copy_str(str);
+}
+
+CKString::CKString(const CKString & old) {
+	Trace_Debug("\ncopy constructor", "CKString", " ");
+	copy_str(old);
 }
 
 void CKString::reset() {
@@ -29,4 +34,9 @@ const char* CKString::copy_str( const char* newStr ) {
 void CKString::print_str() {
 	Trace_Debug("function", "print_str", " ");
 	std::cout << _s << std::endl;
+}
+
+CKString::operator const char* () const {
+	Trace_Debug("operator", "conversion from const char *", " ");
+	return _s;
 }

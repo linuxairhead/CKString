@@ -19,6 +19,7 @@ class CKString
 public:
 	CKString( );								// default constructor
 	CKString( const char * );					// c-str constructor
+	CKString(const CKString & );				// copy constructor
 
 	/* Data Management */
 	void reset();								// reset CKString object
@@ -26,5 +27,8 @@ public:
 
 	/* String Utility */
 	void print_str();							// print string function.
+
+	/* operator */
+	operator const char* () const;				// c-str conversion operator
 };
 
