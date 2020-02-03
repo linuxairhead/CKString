@@ -3,6 +3,13 @@
 #include <iostream>
 
 #define __CKString__MAX_LEN 65535
+#define _DEBUG_ true
+
+#ifdef _DEBUG_
+#define Trace_Debug(fType, fName, debugStr)  std::cout << fType << " " << fName <<   " " << debugStr << std::endl;
+#else
+#define Trace_Debug(fName, debugStr)
+#endif
 
 class CKString
 {
