@@ -15,8 +15,16 @@ CKString::CKString(const CKString & old) {
 	copy_str(old);
 }
 
+CKString::CKString(CKString && other) noexcept {
+	Trace_Debug("\nmove constructor", "CKString", " ");
+	_s = std::move(other._s);
+	_s_len = std::move(other._s_len);
+	other.reset();
+}
+
 void CKString::reset() {
 	Trace_Debug("function", "reset", " ");
+	if (_s) delete[] _s;
 	_s = nullptr;
 	_s_len = 0;
 }
@@ -33,7 +41,10 @@ const char* CKString::copy_str( const char* newStr ) {
 
 void CKString::print_str() {
 	Trace_Debug("function", "print_str", " ");
-	std::cout << _s << std::endl;
+	if (_s)
+		std::cout << _s << std::endl;
+	else
+		std::cout << "Unable to print since string is NULL" << std::endl;
 }
 
 CKString::operator const char* () const {

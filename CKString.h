@@ -20,6 +20,7 @@ public:
 	CKString( );								// default constructor
 	CKString( const char * );					// c-str constructor
 	CKString(const CKString & );				// copy constructor
+	CKString(CKString&&) noexcept;				// move constructor
 
 	/* Data Management */
 	void reset();								// reset CKString object
