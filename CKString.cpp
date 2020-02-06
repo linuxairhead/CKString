@@ -51,3 +51,11 @@ CKString::operator const char* () const {
 	Trace_Debug("operator", "conversion from const char *", " ");
 	return _s;
 }
+
+/* operator overload */
+CKString & CKString::operator = ( CKString str) {
+	Trace_Debug("operator", "copy and swap", " ");
+	std::swap(str._s, _s);
+	std::swap(str._s_len, _s_len);
+	return *this;
+}

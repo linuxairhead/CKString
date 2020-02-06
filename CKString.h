@@ -19,17 +19,20 @@ class CKString
 public:
 	CKString( );								// default constructor
 	CKString( const char * );					// c-str constructor
-	CKString(const CKString & );				// copy constructor
-	CKString(CKString&&) noexcept;				// move constructor
+	CKString( const CKString & );				// copy constructor
+	CKString( CKString&& ) noexcept;			// move constructor
 
 	/* Data Management */
 	void reset();								// reset CKString object
-	const char* copy_str(const char*);			// copy string 
+	const char* copy_str( const char* );		// copy string 
 
 	/* String Utility */
 	void print_str();							// print string function.
 
-	/* operator */
+	/* conversion operator */
 	operator const char* () const;				// c-str conversion operator
+
+	/* operator overload */
+	CKString& operator = (CKString);			// copy and swap assignment
 };
 
